@@ -397,6 +397,65 @@ def getcashflowdb():
 	# cashflow_2016Q4= ts.get_cashflow_data(2016,4)
 	# cashflow_2016Q4.to_sql('cashflow_2016Q4',ENGINE,if_exists='append')
 
+#存款利率
+def getdepositdb():
+	deposit=ts.get_deposit_rate()
+	#print(deposit, sep=' ', end='\n', file=sys.stdout, flush=False)
+	deposit.to_sql('deposit_data',ENGINE,if_exists='append')
+
+#贷款利率
+def getloanratedb():
+	loanrate = ts.get_loan_rate()
+	loanrate.to_sql('loanrate_data',ENGINE,if_exists='append')
+
+#存款准备金率
+def getrrrdb():
+	rrr = ts.get_rrr()
+	rrr.to_sql('rrr_data',ENGINE,if_exists='append')
+
+#货币供应量
+def getmoneysupplydb():
+	moneysupply = ts.get_money_supply()
+	moneysupply.to_sql('moneysupply_data',ENGINE,if_exists='append')
+
+#货币供应量年底余额
+def getmoneysupplybaldb():
+	moneysupplybal = ts.get_money_supply_bal()
+	moneysupplybal.to_sql('moneysupplybal_data',ENGINE,if_exists='append')
+
+#国内生产总值-年度
+def getgdpyeardb():
+	gdpyear = ts.get_gdp_year()
+	gdpyear.to_sql('gdpyear_db',ENGINE,if_exists='append')
+
+#国内生产总值(季度)
+def getgdpquarterdb():
+	gdpquarter = ts.get_gdp_quarter()
+	gdpquarter.to_sql('gdpquarter_data',ENGINE,if_exists='append')
+
+#三大需求对GDP贡献
+def getgdpfordb():
+	gdpfor = ts.get_gdp_for()
+	gdpfor.to_sql('gdpfor_data',ENGINE,if_exists='append')
+
+def getgdppulldb():
+	gdppull = ts.get_gdp_pull()
+	gdppull.to_sql('gdppull_data',ENGINE,if_exists='append')
+
+#三大产业贡献率
+def getgdpcontribdb():
+	gdpcontrib = ts.get_gdp_contrib()
+	gdpcontrib.to_sql('gdpcontrib_data',ENGINE,if_exists = 'append')
+
+#居民消费价格指数
+def getcpidb():
+	cpi = ts.get_cpi()
+	cpi.to_sql('cpi_data',ENGINE,if_exists = 'append')
+
+#工业品出厂价格指数
+def getppidb():
+	ppi = ts.get_ppi()
+	ppi.to_sql('ppi_data',ENGINE,if_exists = 'append')
 
 #基本面数据
 if __name__ == '__main__':
@@ -413,8 +472,28 @@ if __name__ == '__main__':
 	#偿债能力
 	#getdebtpayingdb()
 	#现金流
-	# getcashflowdb()	
-
-
-
-
+	# getcashflowdb()
+	#存款利率
+	#getdepositdb()
+	#贷款利率
+	#getloanratedb()
+	#存款准备金率
+	#getrrrdb()
+	#货币供应量
+	# getmoneysupplydb()
+	#货币供应量（年底余额）
+	# getmoneysupplybaldb()
+	#国内生产总值-年度
+	#getgdpyeardb()
+	#国内生产总值-季度
+	# getgdpquarterdb()
+	#三大需求对GDP贡献
+	# getgdpfordb()
+	#三大产业对GDP拉动
+	# getgdppulldb()
+	#三大产业贡献率
+	# getgdpcontribdb()
+	#居民消费价格指数
+	# getcpidb()
+	#工业品出厂价格指数
+	# getppidb()
